@@ -1,5 +1,6 @@
 <?php
 $data = $block->getMovie()->getData();
+$countMovie = count($data);
 ?>
 <style>
     #title
@@ -14,13 +15,13 @@ $data = $block->getMovie()->getData();
 </style>
 
 <table border="3px" cellspacing="0px">
-    <h1 id="title"><?= __("Có")." ".count($data)." ".__("phim đang phát hành"); ?></h1>
+    <h1 id="title"><?= __("There are %1 films being released", $countMovie); ?></h1>
     <tr>
-        <th><?= __("Tên phim"); ?></th>
-        <th><?= __("Mô tả"); ?></th>
+        <th><?= __("Movie name"); ?></th>
+        <th><?= __("Description"); ?></th>
         <th><?= __("Rating"); ?></th>
-        <th><?= __("Tên đạo diễn"); ?></th>
-        <th><?= __("Các diễn viên"); ?></th>
+        <th><?= __("Director name"); ?></th>
+        <th><?= __("Actors name"); ?></th>
     </tr>
     <?php foreach($data as $movie) { ?>
     <tr>
@@ -32,7 +33,7 @@ $data = $block->getMovie()->getData();
             <?php $actors = $block->getActor($movie['movie_id'])->getData(); ?>
 
             <?php if(count($actors) == 0 ) { ?>
-                <p style="color: red;"><?= __("Phim này không có diễn viên") ?></p>
+                <p style="color: red;"><?= __("The movie has no actors") ?></p>
             <?php } else { ?>
             <?php foreach ($actors as $actor) { ?>
                 <p><?= $actor['name']; ?></p>
