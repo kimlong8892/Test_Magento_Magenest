@@ -1,0 +1,46 @@
+<?php
+$data = $block->getMovie()->getData();
+?>
+<style>
+    #title
+    {
+        text-align: center;
+        color: green;
+        text-transform: uppercase;
+        border: solid blue;
+        padding: 15px;
+        background: black;
+    }
+</style>
+
+<table border="3px" cellspacing="0px">
+    <h1 id="title"><?= __("Có")." ".count($data)." ".__("phim đang phát hành"); ?></h1>
+    <tr>
+        <th><?= __("Tên phim"); ?></th>
+        <th><?= __("Mô tả"); ?></th>
+        <th><?= __("Rating"); ?></th>
+        <th><?= __("Tên đạo diễn"); ?></th>
+        <th><?= __("Các diễn viên"); ?></th>
+    </tr>
+    <?php foreach($data as $movie) { ?>
+    <tr>
+        <td><?= $movie['name_movie']; ?></td>
+        <td><?= $movie['description'] ?></td>
+        <td><?= $movie['rating'] ?></td>
+        <td><?= $movie['name_dir']; ?></td>
+        <td>
+            <?php $actors = $block->getActor($movie['movie_id'])->getData(); ?>
+
+            <?php if(count($actors) == 0 ) { ?>
+                <p style="color: red;"><?= __("Phim này không có diễn viên") ?></p>
+            <?php } else { ?>
+            <?php foreach ($actors as $actor) { ?>
+                <p><?= $actor['name']; ?></p>
+            <?php } ?>
+            <?php } ?>
+        </td>
+    </tr>
+    
+    <?php } ?>
+
+</table>
