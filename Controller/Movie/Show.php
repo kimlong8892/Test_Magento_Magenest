@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Magenest\Movie\Controller\Show;
+namespace Magenest\Movie\Controller\Movie;
 
 
-class Index extends \Magento\Framework\App\Action\Action
+class Show extends \Magento\Framework\App\Action\Action
 {
     protected $resultPageFactory;
     public function __construct(

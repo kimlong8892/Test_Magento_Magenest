@@ -1,0 +1,180 @@
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">actor_listing.actor_data_source</item>
+            <item name="deps" xsi:type="string">actor_listing.actor_data_source</item>
+        </item>
+        <item name="spinner" xsi:type="string">spinner_columns</item>
+        <item name="buttons" xsi:type="array">
+            <item name="add" xsi:type="array">
+                <item name="name" xsi:type="string">add</item>
+                <item name="label" xsi:type="string" translate="true">Add New Actor</item>
+                <item name="class" xsi:type="string">primary</item>
+                <item name="url" xsi:type="string">*/actor/add</item>
+            </item>
+        </item>
+    </argument>
+    <dataSource name="nameOfDataSource">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
+            <argument name="name" xsi:type="string">actor_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">movie_id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="indexField" xsi:type="string">movie_id</item>
+                    </item>
+                </item>
+            </argument>
+        </argument>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <settings>
+            <sticky>true</sticky>
+        </settings>
+        <bookmark name="bookmarks"/>
+        <container name="columns_controls"/>
+        <filters name="listing_filters">
+            <filterSelect name="store_id" provider="${ $.parentName }">
+                <settings>
+                    <options class="Magento\Store\Ui\Component\Listing\Column\Store\Options"/>
+                    <caption translate="true">All Store Views</caption>
+                    <label translate="true">Store View</label>
+                    <dataScope>store_id</dataScope>
+                </settings>
+            </filterSelect>
+        </filters>
+        <massaction name="listing_massaction"
+                    component="Magento_Ui/js/grid/tree-massactions"
+                    class="\Magento\Catalog\Ui\Component\Product\MassAction">
+            <action name="delete">
+                <settings>
+                    <confirm>
+                        <message translate="true">Delete selected items?</message>
+                        <title translate="true">Delete items</title>
+                    </confirm>
+                    <url path="movie/actor/delete"/>
+                    <type>delete</type>
+                    <label translate="true">Delete</label>
+                </settings>
+            </action>
+            <action name="status">
+                <settings>
+                    <type>status</type>
+                    <label translate="true">Change status</label>
+                    <actions>
+                        <action name="0">
+                            <type>enable</type>
+                            <label translate="true">Enable</label>
+                            <url path="catalog/product/massStatus">
+                                <param name="status">1</param>
+                            </url>
+                        </action>
+                        <action name="1">
+                            <type>disable</type>
+                            <label translate="true">Disable</label>
+                            <url path="catalog/product/massStatus">
+                                <param name="status">2</param>
+                            </url>
+                        </action>
+                    </actions>
+                </settings>
+            </action>
+            <action name="attributes">
+                <settings>
+                    <url path="catalog/product_action_attribute/edit"/>
+                    <type>attributes</type>
+                    <label translate="true">Update attributes</label>
+                </settings>
+            </action>
+        </massaction>
+        <paging name="listing_paging">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="provider" xsi:type="string">actor_listing.actor_listing.listing_top.bookmarks</item>
+                        <item name="namespace" xsi:type="string">current.paging</item>
+                    </item>
+                    <item name="selectProvider" xsi:type="string">actor_listing.actor_listing.spinner_columns.ids</item>
+                    <item name="displayArea" xsi:type="string">bottom</item>
+                    <item name="options" xsi:type="array">
+                        <item name="20" xsi:type="array">
+                            <item name="value" xsi:type="number">20</item>
+                            <item name="label" xsi:type="string" translate="true">20</item>
+                        </item>
+                        <item name="30" xsi:type="array">
+                            <item name="value" xsi:type="number">30</item>
+                            <item name="label" xsi:type="string" translate="true">30</item>
+                        </item>
+                        <item name="50" xsi:type="array">
+                            <item name="value" xsi:type="number">50</item>
+                            <item name="label" xsi:type="string" translate="true">50</item>
+                        </item>
+                        <item name="100" xsi:type="array">
+                            <item name="value" xsi:type="number">100</item>
+                            <item name="label" xsi:type="string" translate="true">100</item>
+                        </item>
+                        <item name="200" xsi:type="array">
+                            <item name="value" xsi:type="number">200</item>
+                            <item name="label" xsi:type="string" translate="true">200</item>
+                        </item>
+                    </item>
+                </item>
+            </argument>
+        </paging>
+        <filterSearch name="fulltext"/>
+    </listingToolbar>
+    <columns name="spinner_columns" >
+        <settings>
+            <childDefaults>
+                <param name="fieldAction" xsi:type="array">
+                    <item name="provider" xsi:type="string">actor_listing.actor_listing.spinner_columns.actions</item>
+                    <item name="target" xsi:type="string">applyAction</item>
+                    <item name="params" xsi:type="array">
+                        <item name="0" xsi:type="string">edit</item>
+                        <item name="1" xsi:type="string">${ $.$data.demo }</item>
+                    </item>
+                </param>
+            </childDefaults>
+        </settings>
+        <selectionsColumn name="ids" sortOrder="1">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="indexField" xsi:type="string">actor_id</item>
+                </item>
+            </argument>
+        </selectionsColumn>
+        <column name="actor_id" sortOrder="2">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">textRange</item>
+                    <item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">text</item>
+                    </item>
+                    <item name="sorting" xsi:type="string">asc</item>
+                    <item name="label" xsi:type="string" translate="true">Actor Id</item>
+                </item>
+            </argument>
+        </column>
+        <column name="name" sortOrder="2">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">text</item>
+                    </item>
+                    <item name="sorting" xsi:type="string">asc</item>
+                    <item name="label" xsi:type="string" translate="true">Actor Name</item>
+                </item>
+            </argument>
+        </column>
+        <actionsColumn name="actions" class="Magenest\Movie\Ui\Compoment\Actor\Show\Action" sortOrder="7">
+            <settings>
+                <indexField>actor_id</indexField>
+            </settings>
+        </actionsColumn>
+    </columns>
+</listing>

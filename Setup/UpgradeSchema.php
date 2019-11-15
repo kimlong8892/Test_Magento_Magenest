@@ -12,7 +12,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
 
     public function upgrade(SchemaSetupInterface $setup, ModuleContextInterface $context)
     {
-        if (version_compare($context->getVersion(), '2.3.2') < 0) {
+        if (version_compare($context->getVersion(), '2.3.6') < 0) {
             $installer = $setup;
             $installer->startSetup();
             $connection = $installer->getConnection();
@@ -42,6 +42,16 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 'name'
             );
             $installer->getConnection()->createTable($table);
+            $installer->getConnection()->addIndex(
+                $installer->getTable('magenest_director'),
+                $setup->getIdxName(
+                    $installer->getTable('magenest_director'),
+                    ['name'],
+                    \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
+                ),
+                ['name'],
+                \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
+            );
 
 
 
@@ -94,6 +104,16 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 ]
             );
             $installer->getConnection()->createTable($table);
+            $installer->getConnection()->addIndex(
+                $installer->getTable('magenest_movie'),
+                $setup->getIdxName(
+                    $installer->getTable('magenest_movie'),
+                    ['name', 'description'],
+                    \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
+                ),
+                ['name', 'description'],
+                \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
+            );
 
 
             // create table magenest_actor
@@ -120,6 +140,16 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 'name'
             );
             $installer->getConnection()->createTable($table);
+            $installer->getConnection()->addIndex(
+                $installer->getTable('magenest_actor'),
+                $setup->getIdxName(
+                    $installer->getTable('magenest_actor'),
+                    ['name'],
+                    \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
+                ),
+                ['name'],
+                \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
+            );
 
 
 
