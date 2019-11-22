@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="customer_save_after_data_object">
+        <observer name="default_firstname"
+                  instance="Magenest\Movie\Observer\DefaultFirstNameCustomer" />
+    </event>
+    <event name="before_save_movie">
+        <observer name="default_rating"
+                  instance="Magenest\Movie\Observer\DefaultRatingMovie" />
+    </event>
+</config>

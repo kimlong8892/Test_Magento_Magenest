@@ -35,6 +35,10 @@ class Edit extends \Magento\Backend\App\Action
             $modelMovie->setRating($Rating);
             $modelMovie->setDirector_id($Dir_id);
             $modelMovie->save();
+            $parameters = [
+                'id' => $this->_request->getParam('movie_id'),
+            ];
+            $this->_eventManager->dispatch('before_save_movie', $parameters);
             return $this->_redirect('movie/movie/show');
         }
         if(!isset($this->_request->getParams()['id']))

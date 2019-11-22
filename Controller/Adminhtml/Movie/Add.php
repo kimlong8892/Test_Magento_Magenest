@@ -30,12 +30,25 @@ class Add extends \Magento\Backend\App\Action
             $Name = $this->_request->getParam('name');
             $Description = $this->_request->getParam('description');
             $Rating = $this->_request->getParam('rating');
+
+
+
+
             $Dir_id = $this->_request->getParam('director_id');
             $modelMovie->setName($Name);
             $modelMovie->setDescription($Description);
             $modelMovie->setRating($Rating);
+
+
+
             $modelMovie->setDirector_id($Dir_id);
             $modelMovie->save();
+
+            $parameters = [
+                'id' => $modelMovie->getId(),
+            ];
+            $this->_eventManager->dispatch('before_save_movie', $parameters);
+
             return $this->_redirect('movie/movie/show');
         }
         $resultPage = $this->resultPageFactory->create();

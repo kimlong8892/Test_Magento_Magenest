@@ -2,12 +2,12 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation=
         "urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
-        <Movie>
+        <config_mv>
             <content>
-                <Text_Field>I’m a text field</Text_Field>
+                <text_field>I’m a text field</text_field>
                 <yes_no>1</yes_no>
                 <select_show>1</select_show>
             </content>
-        </Movie>
+        </config_mv>
     </default>
 </config>

@@ -2,20 +2,20 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation=
         "urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <tab id="Magenest" translate="label" sortOrder="0">
+        <tab id="magenest" translate="label" sortOrder="0">
             <label>Magenest</label>
         </tab>
-        <section id="Movie" translate="label" type="text"
+        <section id="config_mv" translate="label" type="text"
                  sortOrder="100" showInDefault="1" showInWebsite="1"
                  showInStore="1">
             <label>Movie</label>
-            <tab>Magenest</tab>
-            <resource>Magenest_Movie::config_Movie</resource>
+            <tab>magenest</tab>
+            <resource>Magenest_Movie::config_movie</resource>
             <group id="content" translate="label" type="text"
                    sortOrder="1" showInDefault="1" showInWebsite="1"
                    showInStore="1">
                 <label>Movie Setting</label>
-                <field id="Text_Field" translate="label"
+                <field id="text_field" translate="label"
                        type="text" sortOrder="1" showInDefault="1"
                        showInWebsite="1" showInStore="1">
                     <label>Text Field</label>
@@ -44,12 +44,13 @@
                        showInWebsite="1" showInStore="1">
                     <label>Rows in table “magenest_actor”</label>
                     <depends>
-                        <field id="Movie/content/select_show">1</field>
+                        <field id="select_show">1</field>
                     </depends>
                     <backend_model>Magenest\Movie\Model\Config\Backend\ConfigRowActor</backend_model>
                     <frontend_model>Magenest\Movie\Block\Adminhtml\Form\Field\Disable</frontend_model>
                 </field>
-                <field id="mageworx_collect" translate="label comment" type="button" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                <field id="btn_reload" translate="label comment" type="button" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
                     <label>Button Field</label>
                     <frontend_model>Magenest\Movie\Block\Adminhtml\Form\Button\Direct</frontend_model>
                 </field>
