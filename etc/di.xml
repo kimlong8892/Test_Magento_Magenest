@@ -28,5 +28,9 @@
             <argument name="resourceModel" xsi:type="string">Magenest\Movie\Model\ResourceModel\Actor</argument>
         </arguments>
     </virtualType>
+    <type name="Magento\Checkout\CustomerData\AbstractItem">
+        <plugin name="Magenest_Movie::productChildName"
+                type="Magenest\Movie\Plugin\Catalog\ChangenameProductChild" sortOrder="1" disabled="false" />
+    </type>
 </config>
 

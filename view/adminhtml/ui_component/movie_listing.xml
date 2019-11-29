@@ -182,7 +182,7 @@
             </argument>
         </column>
 
-        <column name="director_id" class="Magenest\Movie\Ui\Compoment\Movie\Show\NameDir" sortOrder="5">
+        <column name="director_id" class="Magenest\Movie\Ui\Component\Movie\Show\NameDir" sortOrder="5">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
@@ -203,7 +203,7 @@
                 </item>
             </argument>
         </column>
-        <actionsColumn name="actions" class="Magenest\Movie\Ui\Compoment\Movie\Show\Action" sortOrder="7">
+        <actionsColumn name="actions" class="Magenest\Movie\Ui\Component\Movie\Show\Action" sortOrder="7">
             <settings>
                 <indexField>movie_id</indexField>
             </settings>

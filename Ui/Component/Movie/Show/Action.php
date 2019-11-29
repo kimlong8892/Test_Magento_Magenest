@@ -1,33 +1,38 @@
 <?php
 
 
-namespace Magenest\Movie\Ui\Compoment\Movie\Show;
+namespace Magenest\Movie\Ui\Component\Movie\Show;
+use Magento\Framework\UrlInterface;
 use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Framework\View\Element\UiComponent\ContextInterface;
 use Magento\Ui\Component\Listing\Columns\Column;
 
-class NameDir extends Column
+class Action extends Column
 {
-    private $_dirCollectionFactory;
+    private $_urlBuilder;
     public function __construct(
         ContextInterface $context,
         UiComponentFactory $uiComponentFactory,
-        \Magenest\Movie\Model\ResourceModel\Director\CollectionFactory $dirCollectionFactory,
+        UrlInterface $urlBuilder,
         array $components = [],
         array $data = []
     ) {
-        $this->_dirCollectionFactory = $dirCollectionFactory;
+        $this->_urlBuilder = $urlBuilder;
         parent::__construct($context, $uiComponentFactory, $components, $data);
     }
 
     public function prepareDataSource(array $dataSource)
     {
         if (isset($dataSource['data']['items'])) {
-            $listDir = $this->_dirCollectionFactory->create()->getData();
-            foreach ($dataSource['data']['items'] as &$items) {
-                foreach ($listDir as $dir)
-                    if($items['director_id'] == $dir['director_id'])
-                        $items['director_id'] = $dir['name'];
+            foreach ($dataSource['data']['items'] as &$item) {
+                $item[$this->getData('name')]['edit'] = [
+                    'href' => $this->_urlBuilder->getUrl(
+                        'movie/movie/edit',
+                        ['id' => $item['movie_id']]
+                    ),
+                    'label' => __('Edit'),
+                    'hidden' => false,
+                ];
             }
         }
         return $dataSource;

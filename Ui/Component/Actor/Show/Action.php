@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Magenest\Movie\Ui\Compoment\Actor\Show;
+namespace Magenest\Movie\Ui\Component\Actor\Show;
 use Magento\Framework\UrlInterface;
 use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Framework\View\Element\UiComponent\ContextInterface;

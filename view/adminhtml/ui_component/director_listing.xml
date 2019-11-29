@@ -171,7 +171,7 @@
                 </item>
             </argument>
         </column>
-        <actionsColumn name="actions" class="Magenest\Movie\Ui\Compoment\Director\Show\Action" sortOrder="7">
+        <actionsColumn name="actions" class="Magenest\Movie\Ui\Component\Director\Show\Action" sortOrder="7">
             <settings>
                 <indexField>director_id</indexField>
             </settings>

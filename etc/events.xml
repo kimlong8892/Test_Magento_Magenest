@@ -8,4 +8,9 @@
         <observer name="default_rating"
                   instance="Magenest\Movie\Observer\DefaultRatingMovie" />
     </event>
+
+    <event name="admin_system_config_changed_section_config_mv">
+        <observer name="custom_admin_system_config_changed_section_config_mv" instance="Magenest\Movie\Observer\EnventSaveConfigTextField"/>
+    </event>
+
 </config>

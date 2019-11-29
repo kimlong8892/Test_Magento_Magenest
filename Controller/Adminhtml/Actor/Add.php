@@ -21,7 +21,6 @@ class Add extends \Magento\Backend\App\Action
     }
     public function execute()
     {
-
         if(isset($this->_request->getParams()['id']))
             return $this->_redirect('movie/actor/add');
         if(isset($this->_request->getParams()['name']))

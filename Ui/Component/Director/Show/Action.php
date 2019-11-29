@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Magenest\Movie\Ui\Compoment\Movie\Show;
+namespace Magenest\Movie\Ui\Component\Director\Show;
 use Magento\Framework\UrlInterface;
 use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Framework\View\Element\UiComponent\ContextInterface;
@@ -27,8 +27,8 @@ class Action extends Column
             foreach ($dataSource['data']['items'] as &$item) {
                 $item[$this->getData('name')]['edit'] = [
                     'href' => $this->_urlBuilder->getUrl(
-                        'movie/movie/edit',
-                        ['id' => $item['movie_id']]
+                        'movie/director/edit',
+                        ['id' => $item['director_id']]
                     ),
                     'label' => __('Edit'),
                     'hidden' => false,

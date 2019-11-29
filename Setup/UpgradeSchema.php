@@ -9,10 +9,9 @@ use Magento\Framework\Setup\UpgradeSchemaInterface;
 
 class UpgradeSchema implements UpgradeSchemaInterface
 {
-
     public function upgrade(SchemaSetupInterface $setup, ModuleContextInterface $context)
     {
-        if (version_compare($context->getVersion(), '2.3.6') < 0) {
+        if (version_compare($context->getVersion(), '2.3.9') < 0) {
             $installer = $setup;
             $installer->startSetup();
             $connection = $installer->getConnection();
@@ -67,6 +66,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
                     'nullable' => false,
                     'primary' => true,
                     'unsigned' => true,
+                    'auto_increment' => true
                 ],
                 'Movie Id'
             )->addColumn(
@@ -128,6 +128,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
                     'nullable' => false,
                     'primary' => true,
                     'unsigned' => true,
+                    'auto_increment' => true
                 ],
                 'actor Id'
             )->addColumn(
