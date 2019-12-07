@@ -1,2 +1,2 @@
 # Magenest/Movie
-Toi chapter 7 doi rating
+Prj test KnockoutJs Magento: https://github.com/kimlong8892/Magenest_KnockoutJs
