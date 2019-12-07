@@ -1,0 +1,58 @@
+<?php
+    $countAllModule = $block->CountAllModule();
+    $countCustomer = $block->countCustomer();
+    $countProduct = $block->countProduct();
+    $countOrder = $block->countOrder();
+    $countInvoice = $block->countInvoice();
+    $countCreditmemo = $block->countCreditmemo();
+    $countModuleNotMagento = $block->countModuleNotMagento();
+
+
+?>
+
+
+<h2>Request Made Today</h2>
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="col-m-5 border">
+
+
+            <table class="admin__table-secondary">
+                <tr>
+                    <td><?= __('Numbers of module installed in Website:') ?></td>
+                    <td><?= $countAllModule ?></td>
+                </tr>
+                <tr>
+                    <td><?= __('Numbers of module installed in Magneto but belonged to another Vendor') ?></td>
+                    <td><?= $countModuleNotMagento ?></td>
+                </tr>
+
+            </table>
+        </div>
+        <div class="col-md-6 col-l-offset-7">
+            <table class="admin__table-secondary">
+                <tr>
+                    <td><?= __('Numbers of Customer') ?></td>
+                    <td><?= $countCustomer ?></td>
+                </tr>
+                <tr>
+                    <td><?= __('Numbers of Product') ?></td>
+                    <td><?= $countProduct ?></td>
+                </tr>
+                <tr>
+                    <td><?= __('Numbers of Order') ?></td>
+                    <td><?= $countProduct ?></td>
+                </tr>
+                <tr>
+                    <td><?= __('Numbers of Invoice') ?></td>
+                    <td><?= $countInvoice ?></td>
+                </tr>
+                <tr>
+                    <td><?= __('Numbers of Creditmemo') ?></td>
+                    <td><?= $countCreditmemo ?></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
