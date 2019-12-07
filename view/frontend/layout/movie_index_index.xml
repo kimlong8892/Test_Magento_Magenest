@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Home Movie</title>
+<!--        <script src="Magenest_Movie::js/home.js"></script>-->
+
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Magento\Framework\View\Element\Template"
+                   name="home_movie" template="Magenest_Movie::home.phtml"/>
+            <referenceBlock name="catalog.compare.sidebar" remove="true" />
+            <referenceContainer name="sidebar.additional" remove="true" />
+        </referenceContainer>
+    </body>
+</page>

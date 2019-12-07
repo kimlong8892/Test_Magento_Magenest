@@ -1,0 +1,80 @@
+<script>
+    require([
+        'home',
+    ], function(home){
+        console.log(1);
+    });
+</script>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "koexample": {
+                        "component": "Magenest_Movie/js/ko",
+                        "template" : "Magenest_Movie/home"
+                    }
+                }
+            }
+        }
+    }
+</script>
+
+<style>
+    button
+    {
+        margin-right: 20px;
+    }
+    #show-2nd
+    {
+        /*background: green;*/
+        padding: 10%;
+        display: none;
+    }
+    #show-2nd form lable
+    {
+        text-transform: uppercase;
+        font-weight: bolder;
+    }
+    #show-2nd form input
+    {
+        margin-bottom: 10px;
+    }
+</style>
+<button id="btn-1st"><?= __('Open Moldal') ?></button>
+<button id="btn-2nd"><?= __('Open Magento Login Modal') ?></button>
+<button id="btn-3rd"><?= __('Open Custom Login Modal') ?></button>
+<div id="show-2nd">
+    <form action="" method="post">
+        <lable for="userEmail"><?= __('Email') ?></lable>
+        <input type="email" name="userEmail" id="userEmail" placeholder="Enter the email...">
+        <lable for="userEmail"><?= __('PassWord') ?></lable>
+        <input type="password" name="userPass" id="userPass" placeholder="Enter the password...">
+        <button style="text-transform: uppercase;"><?= __('Login') ?></button>
+    </form>
+</div>
+
+<div data-bind="scope: 'koexample'" style="padding: 10px;">
+    <p data-bind="text: sayhello"></p>
+    <p><?= __('Time Now') ?>: <span style="color: green;" data-bind="text: time"></span></p>
+    <table border="1px" cellspacing="0px">
+        <thead>
+            <tr>
+                <th><?= __('ID') ?></th>
+                <th><?= __('First Name') ?></th>
+                <th><?= __('Last Name') ?></th>
+                <th><?= __('Email') ?></th>
+                <th><?= __('Address') ?></th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: list_customer">
+            <tr>
+                <td data-bind="text: id"></td>
+                <td data-bind="text: meal().first_name"></td>
+                <td data-bind="text: meal().last_name"></td>
+                <td data-bind="text: meal().email"></td>
+                <td data-bind="text: meal().address"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
