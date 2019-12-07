@@ -33,13 +33,10 @@ class Report extends Template
         $this->creditmemoCollectionFactory = $creditmemoCollectionFactory;
         parent::__construct($context, $data);
     }
-
     public function CountAllModule()
     {
         return count($this->fullModuleList->getAll());
     }
-
-
     public function countCustomer()
     {
         return count($this->customerCollectionFacory->create()->getData());
@@ -67,18 +64,10 @@ class Report extends Template
         forEach($datas as $data)
         {
             if(strlen($data['name']) <= 7)
-            {
                 $count++;
-            }
-            else
-            {
-                if(substr($data['name'], 0, 7) != "Magento")
+            else if(substr($data['name'], 0, 7) != "Magento")
                     $count++;
-            }
-
         }
         return $count;
-
     }
-
 }
