@@ -1,9 +1,9 @@
 <?php
 
-
 namespace Magenest\Movie\Ui\Component\Order\Show;
-use Magento\Framework\View\Element\UiComponentFactory;
+
 use Magento\Framework\View\Element\UiComponent\ContextInterface;
+use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Ui\Component\Listing\Columns\Column;
 
 class Message extends Column
@@ -21,10 +21,9 @@ class Message extends Column
     {
         if (isset($dataSource['data']['items'])) {
             foreach ($dataSource['data']['items'] as &$items) {
-                if((int)$items['increment_id'] % 2 != 0)
-                {
+                if ((int)$items['increment_id'] % 2 != 0) {
                     $items['Message'] = '<span class="grid-severity-critical">ERROR</span>';
-                }else{
+                } else {
                     $items['Message'] = '<span class="grid-severity-notice">SUCCESS</span>';
                 }
             }

@@ -1,8 +1,8 @@
 var config = {
-    map: {
+        map: {
         '*':
         {
-            home:'Magenest_Movie/js/home',
+        home:'Magenest_Movie/js/home',
         }
-    }
-};
+        }
+        };

@@ -2,6 +2,7 @@
 
 
 namespace Magenest\Movie\Block;
+
 use Magento\Framework\View\Element\Template;
 
 class Movie extends Template
@@ -18,7 +19,6 @@ class Movie extends Template
         $this->_movieCollectionFactory = $movieCollectionFactory;
         $this->_actorCollectionFactory = $actorCollectionFactory;
         parent::__construct($context, $data);
-
     }
 
     public function getMovie()
@@ -33,12 +33,13 @@ class Movie extends Template
                 'description' => 'description',
                 'movie_id' => 'movie_id'
             ])->joinInner(
-            ['dir' => $collection->getTable('magenest_director')],
-            $joinConditions,
-            []
-        );
+                ['dir' => $collection->getTable('magenest_director')],
+                $joinConditions,
+                []
+            );
         return $collection;
     }
+
     public function getActor($movie_id)
     {
         $collection = $this->_actorCollectionFactory->create();
@@ -48,10 +49,10 @@ class Movie extends Template
                 'name' => 'main_table.name',
                 'movie_id' => 'movie_actor.movie_id'
             ])->joinInner(
-            ['movie_actor' => $collection->getTable('magenest_movie_actor')],
-            $joinConditions,
-            []
-        );
+                ['movie_actor' => $collection->getTable('magenest_movie_actor')],
+                $joinConditions,
+                []
+            );
         $collection->addFieldToFilter("movie_id", $movie_id);
         return $collection;
     }

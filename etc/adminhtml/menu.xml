@@ -1,25 +1,43 @@
 <?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
         <!--     Menu Movie       -->
-        <add id="Magenest_Movie::Movie" title="Movie" module="Magenest_Movie" sortOrder="1" resource="Magento_Backend::Movie"/>
-        <add id="Magenest_Movie::ShowMovie" title="Show Movie" module="Magenest_Movie" sortOrder="99999" parent="Magenest_Movie::Movie" action="movie/movie/show" resource="Magento_Backend::Movie"/>
-        <add id="Magenest_Movie::ShowDirector" title="Show Director" module="Magenest_Movie" sortOrder="99999" parent="Magenest_Movie::Movie" action="movie/director/show" resource="Magento_Backend::Movie"/>
-        <add id="Magenest_Movie::ShowActor" title="Show Actor" module="Magenest_Movie" sortOrder="99999" parent="Magenest_Movie::Movie" action="movie/actor/show" resource="Magento_Backend::Movie"/>
+        <add id="Magenest_Movie::Movie" title="Movie" module="Magenest_Movie" sortOrder="1"
+             resource="Magento_Backend::Movie"/>
+        <add id="Magenest_Movie::ShowMovie" title="Show Movie" module="Magenest_Movie" sortOrder="99999"
+             parent="Magenest_Movie::Movie" action="movie/movie/show" resource="Magento_Backend::Movie"/>
+        <add id="Magenest_Movie::ShowDirector" title="Show Director" module="Magenest_Movie" sortOrder="99999"
+             parent="Magenest_Movie::Movie" action="movie/director/show" resource="Magento_Backend::Movie"/>
+        <add id="Magenest_Movie::ShowActor" title="Show Actor" module="Magenest_Movie" sortOrder="99999"
+             parent="Magenest_Movie::Movie" action="movie/actor/show" resource="Magento_Backend::Movie"/>
         <!--    End Menu Movie    -->
-        <add id="Magenest_Movie::Integration" title="Integration" module="Magenest_Movie" sortOrder="1" resource="Magento_Backend::Movie"/>
-        <add id="Magenest_Movie::XeroIntegration" parent="Magenest_Movie::Integration" title="Xero Integration" module="Magenest_Movie" sortOrder="1" resource="Magento_Backend::Movie"/>
+        <add id="Magenest_Movie::Integration" title="Integration" module="Magenest_Movie" sortOrder="1"
+             resource="Magento_Backend::Movie"/>
+        <add id="Magenest_Movie::XeroIntegration" parent="Magenest_Movie::Integration" title="Xero Integration"
+             module="Magenest_Movie" sortOrder="1" resource="Magento_Backend::Movie"/>
         <!--   child  XeroIntegration   -->
-        <add id="Magenest_Movie::ViewLogs" parent="Magenest_Movie::XeroIntegration" title="View Logs" module="Magenest_Movie" sortOrder="1" resource="Magento_Backend::Movie"/>
-        <add id="Magenest_Movie::QueueList" parent="Magenest_Movie::XeroIntegration" title="Queue List" module="Magenest_Movie" sortOrder="1" resource="Magento_Backend::Movie"/>
-        <add id="Magenest_Movie::RequestDailyReport" action="movie/report/index" parent="Magenest_Movie::XeroIntegration" title="Request Daily Report" module="Magenest_Movie" sortOrder="1" resource="Magento_Backend::Movie"/>
-        <add id="Magenest_Movie::Configuration" parent="Magenest_Movie::XeroIntegration" title="Configuration" module="Magenest_Movie" sortOrder="1" resource="Magento_Backend::Movie"/>
+        <add id="Magenest_Movie::ViewLogs" parent="Magenest_Movie::XeroIntegration" title="View Logs"
+             module="Magenest_Movie" sortOrder="1" resource="Magento_Backend::Movie"/>
+        <add id="Magenest_Movie::QueueList" parent="Magenest_Movie::XeroIntegration" title="Queue List"
+             module="Magenest_Movie" sortOrder="1" resource="Magento_Backend::Movie"/>
+        <add id="Magenest_Movie::RequestDailyReport" action="movie/report/index"
+             parent="Magenest_Movie::XeroIntegration" title="Request Daily Report" module="Magenest_Movie" sortOrder="1"
+             resource="Magento_Backend::Movie"/>
+        <add id="Magenest_Movie::Configuration" parent="Magenest_Movie::XeroIntegration" title="Configuration"
+             module="Magenest_Movie" sortOrder="1" resource="Magento_Backend::Movie"/>
         <!--   End child  XeroIntegration   -->
-        <add id="Magenest_Movie::XeroBankAccountMappding" parent="Magenest_Movie::Integration" title="Xero Bank Account Mappding" module="Magenest_Movie" sortOrder="2" resource="Magento_Backend::Movie"/>
+        <add id="Magenest_Movie::XeroBankAccountMappding" parent="Magenest_Movie::Integration"
+             title="Xero Bank Account Mappding" module="Magenest_Movie" sortOrder="2"
+             resource="Magento_Backend::Movie"/>
         <!--   child  XeroBankAccountMappding   -->
-        <add id="Magenest_Movie::PaymentMapping" parent="Magenest_Movie::XeroBankAccountMappding" title="Payment Mapping" module="Magenest_Movie" sortOrder="1" resource="Magento_Backend::Movie"/>
+        <add id="Magenest_Movie::PaymentMapping" parent="Magenest_Movie::XeroBankAccountMappding"
+             title="Payment Mapping" module="Magenest_Movie" sortOrder="1" resource="Magento_Backend::Movie"/>
         <!--   End child  XeroBankAccountMappding     -->
-        <add id="Magenest_Movie::XeroStoreView" parent="Magenest_Movie::Integration" title="Xero Store View, Tracking Category Mapping" module="Magenest_Movie" sortOrder="3" resource="Magento_Backend::Movie"/>
-        <add id="Magenest_Movie::StoreViewMapping" parent="Magenest_Movie::XeroStoreView" title="Store View Mapping" module="Magenest_Movie" sortOrder="1" resource="Magento_Backend::Movie"/>
+        <add id="Magenest_Movie::XeroStoreView" parent="Magenest_Movie::Integration"
+             title="Xero Store View, Tracking Category Mapping" module="Magenest_Movie" sortOrder="3"
+             resource="Magento_Backend::Movie"/>
+        <add id="Magenest_Movie::StoreViewMapping" parent="Magenest_Movie::XeroStoreView" title="Store View Mapping"
+             module="Magenest_Movie" sortOrder="1" resource="Magento_Backend::Movie"/>
     </menu>
 </config>

@@ -3,8 +3,7 @@ $data = $block->getMovie()->getData();
 $countMovie = count($data);
 ?>
 <style>
-    #title
-    {
+    #title {
         text-align: center;
         color: green;
         text-transform: uppercase;
@@ -23,25 +22,25 @@ $countMovie = count($data);
         <th><?= __("Director name"); ?></th>
         <th><?= __("Actors name"); ?></th>
     </tr>
-    <?php foreach($data as $movie) { ?>
-    <tr>
-        <td><?= $movie['name_movie']; ?></td>
-        <td><?= $movie['description'] ?></td>
-        <td><?= $movie['rating'] ?></td>
-        <td><?= $movie['name_dir']; ?></td>
-        <td>
-            <?php $actors = $block->getActor($movie['movie_id'])->getData(); ?>
+    <?php foreach ($data as $movie) { ?>
+        <tr>
+            <td><?= $movie['name_movie']; ?></td>
+            <td><?= $movie['description'] ?></td>
+            <td><?= $movie['rating'] ?></td>
+            <td><?= $movie['name_dir']; ?></td>
+            <td>
+                <?php $actors = $block->getActor($movie['movie_id'])->getData(); ?>
 
-            <?php if(count($actors) == 0 ) { ?>
-                <p style="color: red;"><?= __("The movie has no actors") ?></p>
-            <?php } else { ?>
-            <?php foreach ($actors as $actor) { ?>
-                <p><?= $actor['name']; ?></p>
-            <?php } ?>
-            <?php } ?>
-        </td>
-    </tr>
-    
+                <?php if (count($actors) == 0) { ?>
+                    <p style="color: red;"><?= __("The movie has no actors") ?></p>
+                <?php } else { ?>
+                    <?php foreach ($actors as $actor) { ?>
+                        <p><?= $actor['name']; ?></p>
+                    <?php } ?>
+                <?php } ?>
+            </td>
+        </tr>
+
     <?php } ?>
 
 </table>

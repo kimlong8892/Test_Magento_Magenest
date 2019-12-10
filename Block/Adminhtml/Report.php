@@ -13,6 +13,7 @@ class Report extends Template
     protected $orderCollectionFactory;
     protected $invoiceCollectionFactory;
     protected $creditmemoCollectionFactory;
+
     public function __construct
     (
         Template\Context $context, array $data = [],
@@ -22,51 +23,55 @@ class Report extends Template
         \Magento\Reports\Model\ResourceModel\Customer\Orders\CollectionFactory $orderCollectionFactory,
         \Magento\Sales\Model\ResourceModel\Order\Invoice\CollectionFactory $invoiceCollectionFactory,
         \Magento\Sales\Model\ResourceModel\Order\Creditmemo\CollectionFactory $creditmemoCollectionFactory
-
     )
     {
         $this->fullModuleList = $fullModuleList;
-        $this->customerCollectionFacory = $customerCollectionFacory;
-        $this->productCollectionFactory = $productCollectionFacory;
-        $this->orderCollectionFactory = $orderCollectionFactory;
-        $this->invoiceCollectionFactory = $invoiceCollectionFactory;
-        $this->creditmemoCollectionFactory = $creditmemoCollectionFactory;
+        $this->customerCollectionFacory = $customerCollectionFacory->create();
+        $this->productCollectionFactory = $productCollectionFacory->create();
+        $this->orderCollectionFactory = $orderCollectionFactory->create();
+        $this->invoiceCollectionFactory = $invoiceCollectionFactory->create();
+        $this->creditmemoCollectionFactory = $creditmemoCollectionFactory->create();
         parent::__construct($context, $data);
     }
+
     public function CountAllModule()
     {
         return count($this->fullModuleList->getAll());
     }
+
     public function countCustomer()
     {
-        return count($this->customerCollectionFacory->create()->getData());
+        return $this->customerCollectionFacory->count();
     }
+
     public function countProduct()
     {
-        return count($this->productCollectionFactory->create()->getData());
+        return $this->productCollectionFactory->count();
     }
+
     public function countOrder()
     {
-        return count($this->orderCollectionFactory->create()->getData());
+        return $this->orderCollectionFactory->count();
     }
+
     public function countInvoice()
     {
-        return count($this->invoiceCollectionFactory->create()->getData());
+        return $this->invoiceCollectionFactory->count();
     }
+
     public function countCreditmemo()
     {
-        return count($this->creditmemoCollectionFactory->create()->getData());
+        return $this->creditmemoCollectionFactory->count();
     }
+
     public function countModuleNotMagento()
     {
         $count = 0;
-        $datas =  $this->fullModuleList->getAll();
+        $datas = $this->fullModuleList->getNames();
         forEach($datas as $data)
         {
-            if(strlen($data['name']) <= 7)
+            if(!preg_match("/Magento_/", $data))
                 $count++;
-            else if(substr($data['name'], 0, 7) != "Magento")
-                    $count++;
         }
         return $count;
     }

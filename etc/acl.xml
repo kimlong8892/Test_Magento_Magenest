@@ -7,7 +7,7 @@
                 <resource id="Magento_Backend::stores">
                     <resource id="Magento_Backend::stores_settings">
                         <resource id="Magento_Config::config">
-                            <resource id="Magenest_Movie::config_movie" title="Movie Section" />
+                            <resource id="Magenest_Movie::config_movie" title="Movie Section"/>
                         </resource>
                     </resource>
                 </resource>

@@ -1,9 +1,10 @@
-<fieldset class="fieldset create account" data-hasrequired="<?php /* @escapeNotVerified */echo __('* Required Fields') ?>">
-    <?php if($block -> getUrlAvatar()) { ?>
-    <div class="field" style="text-align: center;">
-        <img style="border: solid blue;" src="<?= $block -> getUrlAvatar() ?>" alt="image" width = "256px">
-        <h4 style="text-transform: uppercase;"><?= __('avatar') ?></h4>
-    </div>
+<fieldset class="fieldset create account" data-hasrequired="<?php /* @escapeNotVerified */
+echo __('* Required Fields') ?>">
+    <?php if ($block->getUrlAvatar()) { ?>
+        <div class="field" style="text-align: center;">
+            <img style="border: solid blue;" src="<?= $block->getUrlAvatar() ?>" alt="image" width="256px">
+            <h4 style="text-transform: uppercase;"><?= __('avatar') ?></h4>
+        </div>
     <?php } else { ?>
         <h4 style="text-align: center; color: red;"><?= __('Avatar not found') ?></h4>
     <?php } ?>

@@ -1,30 +1,31 @@
 <?php
 
-
 namespace Magenest\Movie\Controller\Adminhtml\Movie;
-use http\Env\Request;
+
+use Magenest\Movie\Model\MovieFactory;
+use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
 
-class Edit extends \Magento\Backend\App\Action
+class Edit extends Action
 {
     protected $resultPageFactory;
     private $_movieModelFactory;
+
     public function __construct(
         Context $context,
         PageFactory $resultPageFactory,
-        \Magenest\Movie\Model\MovieFactory $movieModelFactory
+        MovieFactory $movieModelFactory
     ) {
-
         parent::__construct($context);
         $this->resultPageFactory = $resultPageFactory;
         $this->_movieModelFactory = $movieModelFactory;
     }
+
     public function execute()
     {
         $modelMovie = $this->_movieModelFactory->create();
-        if(isset($this->_request->getParams()['movie_id']))
-        {
+        if (isset($this->_request->getParams()['movie_id'])) {
             $modelMovie->load($this->_request->getParam('movie_id'));
             $Name = $this->_request->getParam('name');
             $Description = $this->_request->getParam('description');
@@ -41,14 +42,14 @@ class Edit extends \Magento\Backend\App\Action
             $this->_eventManager->dispatch('before_save_movie', $parameters);
             return $this->_redirect('movie/movie/show');
         }
-        if(!isset($this->_request->getParams()['id']))
+        if (!isset($this->_request->getParams()['id'])) {
             return $this->_redirect('movie/movie/add');
-        else
-        {
+        } else {
             $id = $this->_request->getParam('id');
             $count = count($modelMovie->load($id)->getData());
-            if($count == 0)
+            if ($count == 0) {
                 return $this->_redirect('movie/movie/add');
+            }
         }
         $resultPage = $this->resultPageFactory->create();
         return $resultPage;

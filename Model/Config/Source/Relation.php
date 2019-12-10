@@ -1,12 +1,12 @@
 <?php
 
 namespace Magenest\Movie\Model\Config\Source;
-class Relation implements \Magento\Framework\Option\ArrayInterface
+use Magento\Framework\Option\ArrayInterface;
+
+class Relation implements ArrayInterface
 {
     public function toOptionArray()
     {
-
-
         $data = [];
         $data[] = [
             'value' => 1,

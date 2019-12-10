@@ -1,7 +1,7 @@
 <script>
     require([
         'home',
-    ], function(home){
+    ], function (home) {
         console.log(1);
     });
 </script>
@@ -18,26 +18,26 @@
             }
         }
     }
+
 </script>
 
 <style>
-    button
-    {
+    button {
         margin-right: 20px;
     }
-    #show-2nd
-    {
+
+    #show-2nd {
         /*background: green;*/
         padding: 10%;
         display: none;
     }
-    #show-2nd form lable
-    {
+
+    #show-2nd form lable {
         text-transform: uppercase;
         font-weight: bolder;
     }
-    #show-2nd form input
-    {
+
+    #show-2nd form input {
         margin-bottom: 10px;
     }
 </style>
@@ -60,22 +60,22 @@
     <p><?= __('Time Now') ?>: <span style="color: green;" data-bind="text: time"></span></p>
     <table border="1px" cellspacing="0px">
         <thead>
-            <tr>
-                <th><?= __('ID') ?></th>
-                <th><?= __('First Name') ?></th>
-                <th><?= __('Last Name') ?></th>
-                <th><?= __('Email') ?></th>
-                <th><?= __('Address') ?></th>
-            </tr>
+        <tr>
+            <th><?= __('ID') ?></th>
+            <th><?= __('First Name') ?></th>
+            <th><?= __('Last Name') ?></th>
+            <th><?= __('Email') ?></th>
+            <th><?= __('Address') ?></th>
+        </tr>
         </thead>
         <tbody data-bind="foreach: list_customer">
-            <tr>
-                <td data-bind="text: id"></td>
-                <td data-bind="text: meal().first_name"></td>
-                <td data-bind="text: meal().last_name"></td>
-                <td data-bind="text: meal().email"></td>
-                <td data-bind="text: meal().address"></td>
-            </tr>
+        <tr>
+            <td data-bind="text: id"></td>
+            <td data-bind="text: meal().first_name"></td>
+            <td data-bind="text: meal().last_name"></td>
+            <td data-bind="text: meal().email"></td>
+            <td data-bind="text: meal().address"></td>
+        </tr>
         </tbody>
     </table>
 </div>

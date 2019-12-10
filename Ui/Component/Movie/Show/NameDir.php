@@ -1,18 +1,20 @@
 <?php
 
-
 namespace Magenest\Movie\Ui\Component\Movie\Show;
-use Magento\Framework\View\Element\UiComponentFactory;
+
+use Magenest\Movie\Model\ResourceModel\Director\CollectionFactory;
 use Magento\Framework\View\Element\UiComponent\ContextInterface;
+use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Ui\Component\Listing\Columns\Column;
 
 class NameDir extends Column
 {
     private $_dirCollectionFactory;
+
     public function __construct(
         ContextInterface $context,
         UiComponentFactory $uiComponentFactory,
-        \Magenest\Movie\Model\ResourceModel\Director\CollectionFactory $dirCollectionFactory,
+        CollectionFactory $dirCollectionFactory,
         array $components = [],
         array $data = []
     ) {
@@ -25,9 +27,11 @@ class NameDir extends Column
         if (isset($dataSource['data']['items'])) {
             $listDir = $this->_dirCollectionFactory->create()->getData();
             foreach ($dataSource['data']['items'] as &$items) {
-                foreach ($listDir as $dir)
-                    if($items['director_id'] == $dir['director_id'])
+                foreach ($listDir as $dir) {
+                    if ($items['director_id'] == $dir['director_id']) {
                         $items['director_id'] = $dir['name'];
+                    }
+                }
             }
         }
         return $dataSource;

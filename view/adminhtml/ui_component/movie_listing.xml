@@ -1,4 +1,5 @@
-<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
             <item name="provider" xsi:type="string">movie_listing.movie_data_source</item>
@@ -16,7 +17,9 @@
     </argument>
     <dataSource name="nameOfDataSource">
         <argument name="dataProvider" xsi:type="configurableObject">
-            <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
+            <argument name="class" xsi:type="string">
+                Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider
+            </argument>
             <argument name="name" xsi:type="string">movie_data_source</argument>
             <argument name="primaryFieldName" xsi:type="string">movie_id</argument>
             <argument name="requestFieldName" xsi:type="string">id</argument>
@@ -127,7 +130,7 @@
         </paging>
         <filterSearch name="fulltext"/>
     </listingToolbar>
-    <columns name="spinner_columns" >
+    <columns name="spinner_columns">
         <settings>
             <childDefaults>
                 <param name="fieldAction" xsi:type="array">

@@ -33,6 +33,7 @@ class DefaultFirstNameCustomer implements ObserverInterface
         $this->_customerRepositoryInterface = $customerRepositoryInterface;
         $this->_customerModelFactory = $customerModelFactory;
     }
+
     public function execute(EventObserver $observer)
     {
 

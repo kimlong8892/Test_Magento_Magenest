@@ -1,32 +1,33 @@
 <?php
 
-
 namespace Magenest\Movie\Controller\Adminhtml\Movie;
-use http\Env\Request;
+
+use Magenest\Movie\Model\MovieFactory;
+use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
 
-class Delete extends \Magento\Backend\App\Action
+class Delete extends Action
 {
     protected $resultPageFactory;
     private $_movieModelFactory;
+
     public function __construct(
         Context $context,
         PageFactory $resultPageFactory,
-        \Magenest\Movie\Model\MovieFactory $movieModelFactory
+        MovieFactory $movieModelFactory
     ) {
-
         parent::__construct($context);
         $this->resultPageFactory = $resultPageFactory;
         $this->_movieModelFactory = $movieModelFactory;
     }
+
     public function execute()
     {
         $selects = $this->_request->getParam('selected');
         $modelMovie = $this->_movieModelFactory->create();
         $countDelete = 0;
-        foreach($selects as $select)
-        {
+        foreach ($selects as $select) {
             $modelMovie->load($select);
             $modelMovie->delete();
             $countDelete++;

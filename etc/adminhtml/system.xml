@@ -40,14 +40,15 @@
                     <frontend_model>Magenest\Movie\Block\Adminhtml\Form\Field\Disable</frontend_model>
                 </field>
                 <field id="row_in_actor" translate="label"
-                       type="text" sortOrder="4" showInDefault="1"
+                       type="text" sortOrder="5" showInDefault="1"
                        showInWebsite="1" showInStore="1">
                     <label>Rows in table “magenest_actor”</label>
+
+                    <backend_model>Magenest\Movie\Model\Config\Backend\ConfigRowActor</backend_model>
+                    <frontend_model>Magenest\Movie\Block\Adminhtml\Form\Field\Disable</frontend_model>
                     <depends>
                         <field id="select_show">1</field>
                     </depends>
-                    <backend_model>Magenest\Movie\Model\Config\Backend\ConfigRowActor</backend_model>
-                    <frontend_model>Magenest\Movie\Block\Adminhtml\Form\Field\Disable</frontend_model>
                 </field>
                 <field id="btn_reload" translate="label comment" type="button" sortOrder="10" showInDefault="1"
                        showInWebsite="1" showInStore="1">

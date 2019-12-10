@@ -3,7 +3,7 @@ define([
     'Magento_Ui/js/modal/alert',
     'Magento_Ui/js/modal/modal',
     'ko',
-], function($, alert, modal, ko, Component){
+], function ($, alert, modal, ko, Component) {
     'use strict';
     $(document).ready(function () {
         // alert hello world
@@ -29,7 +29,7 @@ define([
             setInterval(function () {
                 var arrayColor = ['yellow', 'while', 'blue', 'violet', 'green'];
                 var rand = Math.floor(Math.random() * arrayColor.length - 1) + 0;
-                $("#show-2nd").css({'background':arrayColor[rand]});
+                $("#show-2nd").css({'background': arrayColor[rand]});
             }, 1000);
         });
 

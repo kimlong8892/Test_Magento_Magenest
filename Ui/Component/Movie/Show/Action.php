@@ -1,15 +1,16 @@
 <?php
 
-
 namespace Magenest\Movie\Ui\Component\Movie\Show;
+
 use Magento\Framework\UrlInterface;
-use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Framework\View\Element\UiComponent\ContextInterface;
+use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Ui\Component\Listing\Columns\Column;
 
 class Action extends Column
 {
     private $_urlBuilder;
+
     public function __construct(
         ContextInterface $context,
         UiComponentFactory $uiComponentFactory,

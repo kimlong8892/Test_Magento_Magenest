@@ -4,25 +4,32 @@
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
-                <item name="movie_data_source" xsi:type="string">Magenest\Movie\Model\ResourceModel\Movie\Collection</item>
-                <item name="director_data_source" xsi:type="string">Magenest\Movie\Model\ResourceModel\Director\Collection</item>
-                <item name="actor_data_source" xsi:type="string">Magenest\Movie\Model\ResourceModel\Actor\Collection</item>
+                <item name="movie_data_source" xsi:type="string">Magenest\Movie\Model\ResourceModel\Movie\Collection
+                </item>
+                <item name="director_data_source" xsi:type="string">
+                    Magenest\Movie\Model\ResourceModel\Director\Collection
+                </item>
+                <item name="actor_data_source" xsi:type="string">Magenest\Movie\Model\ResourceModel\Actor\Collection
+                </item>
             </argument>
         </arguments>
     </type>
-    <virtualType name="Magenest\Movie\Model\ResourceModel\Movie\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+    <virtualType name="Magenest\Movie\Model\ResourceModel\Movie\Collection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
             <argument name="mainTable" xsi:type="string">magenest_movie</argument>
             <argument name="resourceModel" xsi:type="string">Magenest\Movie\Model\ResourceModel\Movie</argument>
         </arguments>
     </virtualType>
-    <virtualType name="Magenest\Movie\Model\ResourceModel\Director\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+    <virtualType name="Magenest\Movie\Model\ResourceModel\Director\Collection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
             <argument name="mainTable" xsi:type="string">magenest_director</argument>
             <argument name="resourceModel" xsi:type="string">Magenest\Movie\Model\ResourceModel\Director</argument>
         </arguments>
     </virtualType>
-    <virtualType name="Magenest\Movie\Model\ResourceModel\Actor\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+    <virtualType name="Magenest\Movie\Model\ResourceModel\Actor\Collection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
             <argument name="mainTable" xsi:type="string">magenest_actor</argument>
             <argument name="resourceModel" xsi:type="string">Magenest\Movie\Model\ResourceModel\Actor</argument>
@@ -30,7 +37,7 @@
     </virtualType>
     <type name="Magento\Checkout\CustomerData\AbstractItem">
         <plugin name="Magenest_Movie::productChildName"
-                type="Magenest\Movie\Plugin\Catalog\ChangenameProductChild" sortOrder="1" disabled="false" />
+                type="Magenest\Movie\Plugin\Catalog\ChangeNameProductChild" sortOrder="1" disabled="false"/>
     </type>
 </config>
 

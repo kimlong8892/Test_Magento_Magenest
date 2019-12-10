@@ -6,7 +6,7 @@
         <referenceContainer name="content">
             <block class="Magenest\Movie\Block\Adminhtml\Report"
                    name="adminhtml.block.movie.report"
-                   template="Magenest_Movie::report.phtml" />
+                   template="Magenest_Movie::report.phtml"/>
         </referenceContainer>
     </body>
 </page>

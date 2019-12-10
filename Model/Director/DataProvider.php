@@ -1,10 +1,11 @@
 <?php
 
-
 namespace Magenest\Movie\Model\Director;
-use Magenest\Movie\Model\ResourceModel\Director\CollectionFactory;
 
-class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
+use Magenest\Movie\Model\ResourceModel\Director\CollectionFactory;
+use Magento\Ui\DataProvider\AbstractDataProvider;
+
+class DataProvider extends AbstractDataProvider
 {
     /**
      * @param string $name
@@ -25,6 +26,7 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
         $this->collection = $employeeCollectionFactory->create();
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
     }
+
     /**
      * Get data
      *
@@ -36,8 +38,9 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
             return $this->_loadedData;
         }
         $items = $this->collection->getItems();
-        if(count($items) == 0)
+        if (count($items) == 0) {
             return [];
+        }
         foreach ($items as $employee) {
             $this->_loadedData[$employee->getId()] = $employee->getData();
         }
