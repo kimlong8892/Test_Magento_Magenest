@@ -11,6 +11,4 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
         $this->_init('Magenest\Movie\Model\Movie',
             'Magenest\Movie\Model\ResourceModel\Movie');
     }
-
-
 }

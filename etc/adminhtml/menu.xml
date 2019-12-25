@@ -4,13 +4,13 @@
     <menu>
         <!--     Menu Movie       -->
         <add id="Magenest_Movie::Movie" title="Movie" module="Magenest_Movie" sortOrder="1"
-             resource="Magento_Backend::Movie"/>
+             resource="Magento_Backend::MovieManagement"/>
         <add id="Magenest_Movie::ShowMovie" title="Show Movie" module="Magenest_Movie" sortOrder="99999"
              parent="Magenest_Movie::Movie" action="movie/movie/show" resource="Magento_Backend::Movie"/>
         <add id="Magenest_Movie::ShowDirector" title="Show Director" module="Magenest_Movie" sortOrder="99999"
-             parent="Magenest_Movie::Movie" action="movie/director/show" resource="Magento_Backend::Movie"/>
+             parent="Magenest_Movie::Movie" action="movie/director/show" resource="Magento_Backend::Director"/>
         <add id="Magenest_Movie::ShowActor" title="Show Actor" module="Magenest_Movie" sortOrder="99999"
-             parent="Magenest_Movie::Movie" action="movie/actor/show" resource="Magento_Backend::Movie"/>
+             parent="Magenest_Movie::Movie" action="movie/actor/show" resource="Magento_Backend::Actor"/>
         <!--    End Menu Movie    -->
         <add id="Magenest_Movie::Integration" title="Integration" module="Magenest_Movie" sortOrder="1"
              resource="Magento_Backend::Movie"/>

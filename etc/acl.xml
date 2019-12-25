@@ -4,6 +4,12 @@
     <acl>
         <resources>
             <resource id="Magento_Backend::admin">
+                <resource id="Magento_Backend::MovieManagement"
+                          title="MovieManagement" sortOrder="60">
+                    <resource id="Magento_Backend::Movie" title="Movie"/>
+                    <resource id="Magento_Backend::Director" title="Director"/>
+                    <resource id="Magento_Backend::Actor" title="Actor"/>
+                </resource>
                 <resource id="Magento_Backend::stores">
                     <resource id="Magento_Backend::stores_settings">
                         <resource id="Magento_Config::config">

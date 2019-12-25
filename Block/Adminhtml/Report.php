@@ -16,13 +16,13 @@ class Report extends Template
 
     public function __construct
     (
-        Template\Context $context, array $data = [],
         \Magento\Framework\Module\FullModuleList $fullModuleList,
         \Magento\Customer\Model\ResourceModel\Customer\CollectionFactory $customerCollectionFacory,
         \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $productCollectionFacory,
         \Magento\Reports\Model\ResourceModel\Customer\Orders\CollectionFactory $orderCollectionFactory,
         \Magento\Sales\Model\ResourceModel\Order\Invoice\CollectionFactory $invoiceCollectionFactory,
-        \Magento\Sales\Model\ResourceModel\Order\Creditmemo\CollectionFactory $creditmemoCollectionFactory
+        \Magento\Sales\Model\ResourceModel\Order\Creditmemo\CollectionFactory $creditmemoCollectionFactory,
+        Template\Context $context, array $data = []
     )
     {
         $this->fullModuleList = $fullModuleList;
